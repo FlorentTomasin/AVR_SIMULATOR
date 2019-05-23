@@ -1,5 +1,6 @@
 #include "hex.h"
 #include "opcodes.h"
+#include "arithmetic_and_logic_instructions.h"
 
 int main(int argc, char const *argv[]) {
     /* Test if an argument is given before starting */
@@ -28,9 +29,10 @@ int main(int argc, char const *argv[]) {
 
     for (int j = 0; j < lines; j++)
     {
-        for (int i = 0; i < HEX_format[j]->byte_count; i+=2)
+        for (int i = 0; i < HEX_format[j]->byte_count; i+=4)
         {
             uint16_t opcode = (HEX_format[j]->data[i+1] << 8) + HEX_format[j]->data[i];
+            uint16_t data = (HEX_format[j]->data[i+3] << 8) + HEX_format[j]->data[i+2];
 
             for (int j = OpADC; j < OpEND; j++)
             {
@@ -38,6 +40,10 @@ int main(int argc, char const *argv[]) {
                     printf("%s\t= ", AVR_opcodes[j].name);
                     printb(opcode, 16);
                     printf("\n");
+                    // if (opcode == AVR_opcodes[OpJMP].val) {
+                    //     jump(data << 1);
+                    //     printf("k=%02x\n", data << 1);
+                    // }
                 }
             }
         }

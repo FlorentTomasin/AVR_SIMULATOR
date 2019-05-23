@@ -20,7 +20,7 @@
  * I/O address offset within 0x00 - 0x3F.*/
 #include "common.h"
 
-static uint8_t SREG;
+extern uint8_t SREG;
 
 void update_S(void);
 

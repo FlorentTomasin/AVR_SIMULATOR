@@ -10,6 +10,6 @@
 
 #define PC_HIGH 16383
 
-static uint16_t PC;
+extern uint16_t PC;
 
 #endif /* _PROGRAM_COUNTER_H */

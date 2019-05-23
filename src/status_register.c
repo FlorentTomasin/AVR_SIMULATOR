@@ -1,5 +1,7 @@
 #include "status_register.h"
 
+uint8_t SREG = 0;
+
 void update_S(void) {
     /*
      * S = N ^ V

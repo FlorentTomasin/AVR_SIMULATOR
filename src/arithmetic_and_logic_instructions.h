@@ -1,58 +1,62 @@
+#ifndef _ARITHMETIC_AND_LOGIC_INSTRUCTION_H
+#define _ARITHMETIC_AND_LOGIC_INSTRUCTION_H
 /*
- * 
+ *
  * Arithmetic and logic instructions
- * 
+ *
  */
 
 #include <stdint.h>
+#include "status_register.h"
+#include "program_counter.h"
 
 /*
- * Add two registers without carry 
+ * Add two registers without carry
  */
 void add(int8_t * Rd, int8_t * Rr);
 /*
- * Add two registers with carry 
+ * Add two registers with carry
  */
 void adc(int8_t * Rd, int8_t * Rr);
 /*
- * Add immediate to word 
+ * Add immediate to word
  */
 void adiw(int8_t * Rd, int8_t K);
 /*
- * Substrate two registers 
+ * Substrate two registers
  */
 void sub(int8_t * Rd, int8_t * Rr);
 /*
- * Substrate constant from register 
+ * Substrate constant from register
  */
 void subi(int8_t * Rd, int8_t K);
 /*
- * Substrate two registers with carry 
+ * Substrate two registers with carry
  */
 void sbc(int8_t * Rd, int8_t * Rr);
 /*
- * Substrate constant from register with carry 
+ * Substrate constant from register with carry
  */
 void sbci(int8_t * Rd, int8_t K);
 /*
- * Logical AND registers 
+ * Logical AND registers
  */
 void and(int8_t * Rd, int8_t * Rr);
 /*
- * Logical AND registers and constant 
+ * Logical AND registers and constant
  */
 void andi(int8_t * Rd, int8_t K);
 
 /*
- * Logical OR registers 
+ * Logical OR registers
  */
 void or(int8_t * Rd, int8_t * Rr);
 /*
- * Logical OR registers and constant 
+ * Logical OR registers and constant
  */
 void ori(int8_t * Rd, int8_t K);
 /*
- * Exclusive OR Registers 
+ * Exclusive OR Registers
  */
 void eor(int8_t * Rd, int8_t * Rr);
 /*
@@ -72,24 +76,24 @@ void sbr(int8_t * Rd, int8_t K);
  */
 void cbr(int8_t * Rd, int8_t K);
 /*
- * Increment register 
+ * Increment register
  */
 void inc(int8_t *Rd);
 /*
- * Decrement register 
+ * Decrement register
  */
 void dec(int8_t * Rd);
 /*
- * Test for zero or negative 
+ * Test for zero or negative
  */
 void tst(int8_t * Rd);
 /*
- * Clear register 
+ * Clear register
  */
 void clr(int8_t * Rd);
 
 /*
- * Set register 
+ * Set register
  */
 void ser(int8_t * Rd);
 /*
@@ -97,21 +101,21 @@ void ser(int8_t * Rd);
  */
 void sbiw();
 /*
- * Multiply unsigned 
+ * Multiply unsigned
  */
 void mul(uint8_t * Rd, uint8_t *Rr);
 /*
- * Multiply signed 
+ * Multiply signed
  */
 void muls(int8_t * Rd, int8_t *Rr);
 /*
- * Multiply signed with unsigned 
+ * Multiply signed with unsigned
  */
 void mulsu(int8_t * Rd, uint8_t *Rr);
 /*
- * Fractional multiply unsigned 
+ * Fractional multiply unsigned
  */
-void fmul(int8_t * Rd, int8_t *Rr);
+void fmul(uint8_t * Rd, uint8_t *Rr);
 /*
  * Fractional multiply signed
  */
@@ -120,3 +124,9 @@ void fmuls(int8_t * Rd, int8_t *Rr);
  * Fractional multiply signed with unsigned
  */
 void fmulsu(int8_t * Rd, uint8_t *Rr);
+/*
+ * Jump
+ */
+void jump(uint8_t k);
+
+#endif /* _ARITHMETIC_AND_LOGIC_INSTRUCTION_H */
